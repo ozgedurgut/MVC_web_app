@@ -26,5 +26,11 @@ namespace MVC_web_app.Controllers
 
             return View();
         }
+
+        public ActionResult Test() 
+        {
+            return View();
+        } 
+
     }
 }
