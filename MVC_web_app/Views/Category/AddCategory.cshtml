@@ -1,4 +1,4 @@
-﻿
+﻿@model EntityLayer.Concrete.Category
 @{
     Layout = null;
 }
@@ -6,10 +6,28 @@
 
 <h1>New Category</h1>
 <br />
+
+@using (Html.BeginForm("AddCategory","Category", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.Label("Category Name")
+    @Html.TextBoxFor(x => x.CategoryName)
+    @Html.ValidationMessageFor(x => x.CategoryName)
+    <br /> <br />
+    @Html.Label("Write a description")
+    @Html.TextBoxFor(x => x.CategoryDescription)
+    @Html.ValidationMessageFor(x => x.CategoryDescription)
+
+    <br /><br />
+    <button>Save</button>
+</div>
+}
+
+@*
 <form class="form-group" method="post">
     <input type="text" placeholder="Category Name" name="CategoryName" class="form-control" />
     <br />
     <input type="text" placeholder="Category Description" name="CategoryDescription" class="form-control" />
     <br />
     <button class="btn btn-success">Add</button>
-</form>
+</form>*@

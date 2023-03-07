@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -35,8 +36,8 @@ namespace MVC_web_app.Controllers
         public ActionResult AddCategory(Category p)
         {
             //  cm.CategoryAddBL(p);
-            CategoryValidator categoryValidator = new CategoryValidator();
-            ValidationResult result = categoryValidator.Validatior(p);
+            BusinessLayer.ValidationRules.CategoryValidator categoryValidator = new BusinessLayer.ValidationRules.CategoryValidator();
+            ValidationResult result = categoryValidator.Validate(p);
             if (result.IsValid)
             {
                 cm.CategoryAddBL(p);

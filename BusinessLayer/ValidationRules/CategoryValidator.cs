@@ -1,5 +1,6 @@
 ﻿using EntityLayer.Concrete;
 using FluentValidation;
+using FluentValidation.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +9,9 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.ValidationRules
 {
-    public class CategoryValidatior:AbstractValidator<Category>
+    public class CategoryValidator:AbstractValidator<Category>
     {
-        public CategoryValidatior()
+        public CategoryValidator()
         {
             RuleFor(x => x.CategoryName).NotEmpty().WithMessage("Category name cannot be empty");
             RuleFor(x => x.CategoryDescription).NotEmpty().WithMessage("Category description cannot be empty");
