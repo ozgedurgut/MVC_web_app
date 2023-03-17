@@ -1,24 +1,33 @@
-﻿
+﻿@using EntityLayer.Concrete
+@model List<Category>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<table class="table table-bordered" >
+<table class="table table-bordered">
     <tr>
         <th>ID</th>
-        <th>Category</th>
-        <th>State</th>
+        <th>Category Name</th>
+        <th>Status</th>
+        <th>Delete</th>
+        <th>Update</th>
+        <th>Headings</th>
+
     </tr>
-    <tr>
-        <td>1</td>
-        <td>Spor</td>
-        <td>Active</td>
-    </tr>
-    <tr>
-        <td>2</td>
-        <td>Software</td>
-        <td>Active</td>
-    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryID</td>
+            <td>@item.CategoryName</td>
+            <td>@item.CategoryStatus</td>
+            <td><a href="#" class="btn btn-danger">Delete</a></td>
+            <td><a href="#" class="btn btn-warning">Update</a></td>
+            <td><a href="#" class="btn btn-primary">Headings</a></td>
+        </tr>
+    }
 </table>
+<br />
+<a href="/Category/AddCategory" class="btn btn-info"> New Category </a>
 
